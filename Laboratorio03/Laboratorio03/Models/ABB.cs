@@ -4,10 +4,10 @@ namespace Laboratorio03.Models
     public class ABB
     {
         // raiz 
-        Vehiculo vehiculo;
-        bool vacio;
-        ABB subABBIzq;
-        ABB subABBDer;
+        public Vehiculo vehiculo;
+        public bool vacio;
+        public ABB subABBIzq;
+        public ABB subABBDer;
 
         internal ABB()
         {
@@ -68,6 +68,6 @@ namespace Laboratorio03.Models
                     subABBDer = hijo;
                 }
             }
-        }
+        }    
     }
 }
