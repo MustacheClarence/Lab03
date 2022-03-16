@@ -23,5 +23,51 @@ namespace Laboratorio03.Models
             this.subABBIzq = null;
             this.subABBDer = null;
         }
+
+        void OrdenarDpi(Vehiculo v)
+        {
+            ABB hijo = new ABB(v);
+            if (v != null)
+            {
+                if (string.Compare(v.Id, vehiculo.Id) < 0)
+                {
+                    subABBIzq = hijo;
+                }
+                if (string.Compare(v.Id, vehiculo.Id) >= 0)
+                {
+                    subABBDer = hijo;
+                }
+            }
+        }
+        void OrdenarSerie(Vehiculo v)
+        {
+            ABB hijo = new ABB(v);
+            if (v != null)
+            {
+                if (string.Compare(v.Serie, vehiculo.Serie) < 0)
+                {
+                    subABBIzq = hijo;
+                }
+                if (string.Compare(v.Serie, vehiculo.Serie) >= 0)
+                {
+                    subABBDer = hijo;
+                }
+            }
+        }
+        void OrdenarEmail(Vehiculo v)
+        {
+            ABB hijo = new ABB(v);
+            if (v != null)
+            {
+                if (string.Compare(v.Email, vehiculo.Email) < 0)
+                {
+                    subABBIzq = hijo;
+                }
+                if (string.Compare(v.Email, vehiculo.Email) >= 0)
+                {
+                    subABBDer = hijo;
+                }
+            }
+        }
     }
 }
