@@ -1,0 +1,46 @@
+﻿@using Laboratorio03.Models;
+@model List<Vehiculo>
+
+ 
+@{
+    ViewData["Title"] = "Subir archivo CSV con informacion de vehiculos";
+}
+<h2> @ViewData["Title"]</h2>
+@using (Html.BeginForm("SubirArchivo","Vehiculo",FormMethod.Post,new {enctype="multipart/form-data"} ))
+{
+   <label form="file"> Subir Archivo</label>
+   <input type="file"name="file"id="file"/>
+   <input type="checkbox"name="chechbox1"id="checkbox1"/>
+   <label for="checkbox1">ABB</label>
+   <input type="checkbox"name="chechbox2"id="checkbox2"/>
+   <label for="checkbox2">AVL</label>
+   <input type="checkbox"name="chechbox3"id="checkbox3"/>
+   <label for="checkbox3">Ambas</label>
+   <input type ="submit"value="Enviar"/>
+}
+
+@if (Model != null){
+     <table class ="table table-hover">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Email</td>
+                <td>Propietario</td>
+                <td>Color</td>
+                <td>Marca</td>
+                <td>Serie</td>
+            </tr>
+        </thead>
+        @foreach(var v in Model)
+         {
+            <tr>
+                <td>@v.Id</td>
+                <td>@v.Email</td>
+                <td>@v.Propietario</td>
+                <td>@v.Color</td>
+                <td>@v.Marca</td>
+                <td>@v.Serie</td>
+            </tr>
+         }   
+    </table>
+}
