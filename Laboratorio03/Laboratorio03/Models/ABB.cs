@@ -8,14 +8,7 @@ namespace Laboratorio03.Models
         public bool vacio;
         public ABB subABBIzq;
         public ABB subABBDer;
-
-        internal ABB()
-        {
-            this.vehiculo = null;
-            this.vacio = false;
-            this.subABBIzq = null;
-            this.subABBDer = null;
-        }
+       
         internal ABB(Vehiculo v)
         {
             this.vehiculo = v;
@@ -24,6 +17,8 @@ namespace Laboratorio03.Models
             this.subABBDer = null;
         }
 
+        // a la hora de insertar se escoge al ordenamiento que se desee
+        // ordenamiento = insertar
         void OrdenarDpi(Vehiculo v)
         {
             ABB hijo = new ABB(v);
@@ -68,6 +63,79 @@ namespace Laboratorio03.Models
                     subABBDer = hijo;
                 }
             }
-        }    
+        }
+        //Busqueda
+        Vehiculo ID(string id, ABB arbol)
+        {
+
+            if (arbol != null)
+            {
+                if (id != null)
+                {
+                    if (string.Compare(id, arbol.vehiculo.Id) == 0)
+                    {
+                        return arbol.vehiculo;
+                    }
+                    if (string.Compare(id, arbol.vehiculo.Id) < 0)
+                    {
+                        return ID(id, arbol.subABBIzq);
+                    }
+                    if (string.Compare(id, arbol.vehiculo.Id) > 0)
+                    {
+                        return ID(id, arbol.subABBDer);
+                    }
+                }
+                return null;
+            }
+            return null;
+        }
+        Vehiculo Serie(string serie, ABB arbol)
+        {
+
+            if (arbol != null)
+            {
+                if (serie != null)
+                {
+                    if (string.Compare(serie, arbol.vehiculo.Serie) == 0)
+                    {
+                        return arbol.vehiculo;
+                    }
+                    if (string.Compare(serie, arbol.vehiculo.Serie) < 0)
+                    {
+                        return Serie(serie, arbol.subABBIzq);
+                    }
+                    if (string.Compare(serie, arbol.vehiculo.Serie) > 0)
+                    {
+                        return Serie(serie, arbol.subABBDer);
+                    }
+                }
+                return null;
+            }
+            return null;
+        }
+        Vehiculo Email(string id, ABB arbol)
+        {
+            if (arbol != null)
+            {
+
+                if (id != null)
+                {
+                    if (string.Compare(id, arbol.vehiculo.Email) == 0)
+                    {
+                        return arbol.vehiculo;
+                    }
+                    if (string.Compare(id, arbol.vehiculo.Email) < 0)
+                    {
+                        return Email(id, arbol.subABBIzq);
+                    }
+                    if (string.Compare(id, arbol.vehiculo.Email) > 0)
+                    {
+                        return Email(id, arbol.subABBDer);
+                    }
+                }
+                return null;
+            }
+            return null;
+        }
     }
 }
